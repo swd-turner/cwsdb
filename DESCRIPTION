@@ -1,11 +1,23 @@
 Package: cwsdb
-Type: Package
-Title: What the Package Does (Title Case)
-Version: 0.1.0
-Author: Who wrote it
-Maintainer: The package maintainer <yourself@somewhere.net>
-Description: More about what it does (maybe more than one line)
-    Use four spaces when indenting paragraphs within the Description.
-License: What license is it under?
+Version: 0.0.0.9000
+Title: What the Package Does (One Line, Title Case)
+Description: What the package does (one paragraph).
+Authors@R: person("Sean", "Turner", email = "sean.turner@protonmail.com",
+                                    role =  c("aut", "cre"),
+                                    comment = c(ORCID = "0000-0003-4400-9800"))
+License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
+ByteCompile: true
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 6.0.1
+Imports: 
+    tibble,
+    magrittr,
+    crayon,
+    clisymbols,
+    readr,
+    clipr,
+    dplyr
+Suggests: 
+    testthat

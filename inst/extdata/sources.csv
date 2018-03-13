@@ -1,0 +1,8 @@
+# File: sources.csv
+# Title: Source details and abbreviations used in cwsdb
+# Units: NA
+# Description: Details of all sources used in cwsdb
+# Comments: If year is unknown then latest year of citations in document assumed.
+abbrv,author, year, title, published, url
+tokyo_001,Bureau of Waterworks Tokyo Met. Gov.,2016,Stable supply of delicious potable water,BoWTMG,www.waterprofessionals.metro.tokyo.jp/pdf/wst_03.pdf
+

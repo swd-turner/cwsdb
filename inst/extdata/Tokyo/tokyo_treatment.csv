@@ -1,0 +1,23 @@
+# File: tokyo_treatment.csv
+# Title: Tokyo water treatment facilities
+# Units: m^3/day
+# Description: Tokyo's water purification plant type and capacity
+# Comments: NA
+# Source: tokyo_001
+plantName,riverBasin,treatment1,treatment2,capacity
+Kanamachi,Tone_Arakawa,rapid sand filtration,advanced water treatment,1500000
+Misato,Tone_Arakawa,rapid sand filtration,advanced water treatment,1100000
+Asaka,Tone_Arakawa,rapid sand filtration,advanced water treatment,1700000
+Misono,Tone_Arakawa,rapid sand filtration,advanced water treatment,300000
+Higashi-murayam,Tone_Arakawa,rapid sand filtration,advanced water treatment,880000
+Higashi-murayam,Tama,rapid sand filtration,NA,385000
+Ozaku,Tama,rapid sand filtration,NA,280000
+Sakai,Tama,slow sand filtration,NA,315000
+Kinuta,Tama,membrane filtration,slow sand filtration,114500
+Kinutashimo,Tama,membrane filtration,slow sand filtration,70000
+Tamagawa,Tama,slow sand filtration,rapid sand filtration,385000
+Nagasawa,Sagami,rapid sand filtration,NA,200000
+Suginami,groundwater,NA,NA,15000
+
+
+

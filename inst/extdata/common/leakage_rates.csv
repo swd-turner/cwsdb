@@ -1,0 +1,8 @@
+# File: leakage_rates.csv
+# Title: Leakage rates by city
+# Units: Percent
+# Description: Leakage rates (% water lost between treatment and consumption)
+# Comments:
+# Source: Given in table.
+city,leakRate,reportYr,source
+Tokyo,3.2,2015,tokyo_001
