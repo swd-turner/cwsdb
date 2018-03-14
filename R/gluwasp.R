@@ -1,4 +1,4 @@
-#' The city water supply database (cwsdb).
+#' The global urban water supply database.
 #'
 #' Details...
 #'
@@ -24,6 +24,6 @@
 #' \item{finance_model}{Primary mode of infrastructure finance}
 #' }
 #' @examples
-#' cwsdb
+#' gluwasp
 #'
-"cwsdb"
+"gluwasp"

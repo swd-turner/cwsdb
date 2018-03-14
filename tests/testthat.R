@@ -1,4 +1,4 @@
 library(testthat)
-library(cwsdb)
+library(gluwasp)
 
-test_check("cwsdb")
+test_check("gluwasp")

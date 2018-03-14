@@ -1,6 +1,6 @@
-# make_cws_tibble
-# Sets up a basic empty tibble with cws column headers
-make_cws_tb <- function(){
+# make_gluwasp_tb
+# Sets up a basic empty tibble with gluwasp column headers
+make_gluwasp_tb <- function(){
   tibble(city = as.character(NA),
          country = as.character(NA),
          pop = as.integer(NA),
@@ -35,9 +35,9 @@ make_cws_tb <- function(){
                                            "private")))
 }
 
-# read_cws_data
-# read in cws data
-read_cws_data <- function(file, city){
+# read_gluwasp_data
+# read in gluwasp data
+read_gluwasp_data <- function(file, city){
 
   # ensure file is csv type
   if (substr(file, nchar(file) - 3, nchar(file)) != ".csv") {
@@ -50,7 +50,7 @@ read_cws_data <- function(file, city){
   # read in data
   readr::read_csv(system.file(paste0("extdata/", city),
                               file,
-                              package = "cwsdb"),
+                              package = "gluwasp"),
                   comment = "#")
 }
 
