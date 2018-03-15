@@ -1,5 +1,5 @@
 # gluwasp
-The *gl*obal *u*rban *wa*ter *s*u*p*ply database
+The **gl**obal **u**rban **wa**ter **s**u**p**ply database
 
 # when adding a source
 - write source up in `inst/extdata/sources.csv`

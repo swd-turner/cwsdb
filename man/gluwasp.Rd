@@ -14,7 +14,7 @@
 \item{catch_area}{Catchment area upsteam of reservoirs (square kilometeres)}
 \item{catch_type}{Catchment type: protected, unprotected, mixed}
 \item{surf, ground, unconv}{Percentage of average annual supply delivered by surface, groundwater, and unconventional resources respectively}
-\item{desal_max, treatment_max}{Maximum capacity (cubic meteres per day) for desalination and treatment facilities respectively}
+\item{desal_max, treatment_max}{Maximum capacity (million cubic meteres per day) for desalination and treatment facilities respectively}
 \item{purif_main, purif_sec}{Main and secondary modes of purification by plant capacity}
 \item{adv_treatment}{Logical: is there significant advanced treatment (e.g., activated carbon)}
 \item{disinf_main}{Primary means of disinfection}
