@@ -26,7 +26,7 @@ make_gluwasp_tb <- function(){
                                   "natural",
                                   "membrane",
                                   "reverse_osmosis")),
-    treat_sec = treat_main,
+    treat_sec = .data$treat_main,
     adv_treatment = as.logical(NA),
     disinf_main = factor(NA,
                         levels = c("chlorine",
@@ -68,7 +68,7 @@ read_gluwasp_data <- function(file, city){
 
 # read_common_data
 # read in data from common file
-read_common_data <- function(file, cty, col_name){
+read_common_data <- function(file, city, col_name){
 
   # ensure file is csv type
   if (substr(file, nchar(file) - 3, nchar(file)) != ".csv") {
@@ -79,10 +79,39 @@ read_common_data <- function(file, cty, col_name){
   }
 
   read_gluwasp_data(file, "common") %>%
-    filter(city == cty) %>%
+    filter(city == !! city) %>%
     select(one_of(col_name)) %>%
     `[[`(1)
 }
+
+
+# read_input_comments
+# read in comments for testing
+read_input_comments <- function(file, city){
+
+  # ensure file is csv type
+  if (substr(file, nchar(file) - 3, nchar(file)) != ".csv") {
+    stop(
+      "first argument must be of type .csv and be named with .csv extension",
+      call. = FALSE
+    )
+  }
+
+  # read in data
+  readr::read_csv(system.file(paste0("extdata/", city),
+                              file,
+                              package = "gluwasp"),
+                  comment = "#")
+}
+
+
+# is_input_csv
+# T/F for whether a file name has ".csv" at the end
+is_input_csv = function(file){
+  substr(file, nchar(file) - 3, nchar(file)) == ".csv"
+}
+
+
 
 
 

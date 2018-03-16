@@ -4,5 +4,5 @@
 # Description: Leakage rates (% water lost between treatment and consumption)
 # Comments:
 # Source: Given in table.
-city,leakRate,reportYr,source
+city,leak_rate,report_yr,source_ref
 Tokyo,3.2,2015,tokyo_001

@@ -4,7 +4,7 @@
 # Description: Tokyo's water purification plant type and capacity
 # Comments: NA
 # Source: tokyo_001
-plantName,riverBasin,treatment1,treatment2,capacity
+plant,river_basin,treatmt_1,treatmt_2,capacity
 Kanamachi,Tone_Arakawa,rapid sand filtration,advanced water treatment,1500000
 Misato,Tone_Arakawa,rapid sand filtration,advanced water treatment,1100000
 Asaka,Tone_Arakawa,rapid sand filtration,advanced water treatment,1700000
