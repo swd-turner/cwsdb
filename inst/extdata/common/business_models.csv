@@ -1,0 +1,8 @@
+# File: business_models.csv
+# Title: Business model for water supply
+# Units: NA
+# Description: Categorized business models by ownership, operation, and financing arrangements
+# Comments: See documentation/business_model_cat.md for descriptions.
+# Source: Given in table.
+city,agency,model,rev_source,cost_rec,finance,source_ref
+Tokyo,Tokyo Waterworks Bureau,pub_corp,user_rates,TRUE,mixed,tky_gov

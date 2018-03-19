@@ -36,14 +36,22 @@ make_gluwasp_tb <- function(){
                                    "UV")),
     fluoride = as.logical(NA),
     leakage = as.double(NA),
-    operator = as.character(NA),
-    ownership = factor(NA,
-                      levels = c("state",
-                                 "private",
-                                 "fragmented")),
-    finance_model = factor(NA,
-                          levels = c("state",
-                                     "PPP")))
+    meter_pen = as.double(NA),
+    business_model = factor(NA,
+                            levels = c("gvt_utility",
+                                       "municipal_brd",
+                                       "coop",
+                                       "corp_utility",
+                                       "private_utility")),
+    revenue_source = factor(NA,
+                            levels = c("user_rates",
+                                       "property_taxes",
+                                       "subsidy")),
+    cost_rec = as.logical(NA),
+    finance = factor(NA, levels = c("state_subsidy",
+                                    "bond_issue",
+                                    "PPP",
+                                    "mixed")))
 }
 
 # read_gluwasp_data
