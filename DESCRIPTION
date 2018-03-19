@@ -1,7 +1,7 @@
 Package: gluwasp
 Version: 0.0.0.9000
-Title: What the Package Does (One Line, Title Case)
-Description: What the package does (one paragraph).
+Title: The Global Urban Water Supply Database
+Description: A dataset combining infrastructual, hydrological, and institutional water supply statistics for the world's major cities.
 Authors@R: person("Sean", "Turner", email = "sean.turner@protonmail.com",
                                     role =  c("aut", "cre"),
                                     comment = c(ORCID = "0000-0003-4400-9800"))

@@ -82,7 +82,7 @@ build_tokyo <- function() {
 
   # significant (i.e., >50% output) advanced stage treatment?
   trt_tky %>%
-    tidyr::replace_na(list(treatmt_2 = "none")) %>%
+    replace_na(list(treatmt_2 = "none")) %>%
     group_by(.data$treatmt_2) %>%
     summarise(capacity= sum(.data$capacity)) %>%
     mutate(prop_cap = .data$capacity / sum(.data$capacity),

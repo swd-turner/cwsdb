@@ -2,7 +2,7 @@
 # Title: Leakage rates by city
 # Units: Percent
 # Description: Leakage rates (% water lost between treatment and consumption)
-# Comments:
+# Comments: Distribution system leakage only
 # Source: Given in table.
 city,leak_rate,report_yr,source_ref
-Tokyo,3.2,2015,tokyo_001
+Tokyo,3.1,2016,tky_leak

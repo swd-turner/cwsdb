@@ -3,7 +3,7 @@
 # Units: m^3/day
 # Description: Tokyo's water purification plant type and capacity
 # Comments: NA
-# Source: tokyo_001
+# Source: tky_supply
 plant,river_basin,treatmt_1,treatmt_2,capacity
 Kanamachi,Tone_Arakawa,rapid sand filtration,advanced water treatment,1500000
 Misato,Tone_Arakawa,rapid sand filtration,advanced water treatment,1100000

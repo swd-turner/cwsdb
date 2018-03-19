@@ -3,7 +3,7 @@
 # Units: eff_storage: Mm^3; dam_height: m; dam_length: m; catchm_area: km^2
 # Description: Tokyo's water supply reservoir (effective capacity)
 # Comments: Inconsistent dam type labeling across two roiver systems (Tama specifies material and type; Tone specifies type only).
-# Source: tokyo_001
+# Source: tky_supply
 name,river_basin,eff_storage,catchm_area,dam_type,dam_height,dam_length,compl_yr
 Ogouchi,Tama,185.4,262.88,gravity,149,353,1957
 Yamaguchi,Tama,19.528,7.18,earth,34,716,1934
