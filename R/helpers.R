@@ -95,7 +95,7 @@ read_common_data <- function(file, city, col_name){
 
 # read_input_comments
 # read in comments for testing
-read_input_comments <- function(file, city){
+read_input_comments <- function(file){
 
   # ensure file is csv type
   if (substr(file, nchar(file) - 3, nchar(file)) != ".csv") {
@@ -113,6 +113,7 @@ read_input_comments <- function(file, city){
 }
 
 
+
 # is_input_csv
 # T/F for whether a file name has ".csv" at the end
 is_input_csv = function(file){
@@ -120,6 +121,13 @@ is_input_csv = function(file){
 }
 
 
-
+# get_cmn_src_names
+# get source reference names for cross-testing
+get_cmn_src_names = function(file){
+  readr::read_csv(system.file("extdata",
+                              file,
+                              package = "gluwasp"),
+                  comment = "#") %>% .$source_ref
+}
 
 
