@@ -5,9 +5,9 @@ make_gluwasp_tb <- function(){
     city = as.character(NA),
     country = as.character(NA),
     pop = as.integer(NA),
-    demand = as.double(NA),
+    demand_total = as.double(NA),
+    demand_dmstc = as.double(NA),
     storage = as.double(NA),
-    num_res = as.integer(NA),
     catch_area = as.double(NA),
     catch_type = factor(NA,
                        levels = c("unprotected",
@@ -37,11 +37,14 @@ make_gluwasp_tb <- function(){
     fluoride = as.logical(NA),
     leakage = as.double(NA),
     meter_pen = as.double(NA),
+    access = as.double(NA),
     business_model = factor(NA,
                             levels = c("gvt_utility",
+                                       "delegated_man",
                                        "municipal_brd",
                                        "coop",
                                        "corp_utility",
+                                       "pub_corp",
                                        "private_utility")),
     revenue_source = factor(NA,
                             levels = c("user_rates",
@@ -142,11 +145,55 @@ is_input_csv = function(file){
 
 # get_cmn_src_names
 # get source reference names for cross-testing
-get_cmn_src_names = function(file){
+get_cmn_src_names <- function(file){
   readr::read_csv(system.file("extdata",
                               file,
                               package = "gluwasp"),
                   comment = "#") %>% .$source_ref
 }
+
+# get_business_model_detail
+# get business model info
+get_business_model_detail <- function(tb, city){
+
+  read_common_data("business_models.csv", quo(city), "model") ->
+    bm
+  if (!(bm %in% levels(tb$business_model))) {
+    stop(
+      paste0("business model must be one of: ",
+             collapse(levels(tb$business_model))),
+      call. = FALSE
+    )
+  }
+
+  read_common_data("business_models.csv", quo(city), "rev_source") ->
+    rs
+  if (!(rs %in% levels(tb$revenue_source))) {
+    stop(
+      paste0("revenue source must be one of: ",
+             collapse(levels(tb$revenue_source))),
+      call. = FALSE
+    )
+  }
+
+  read_common_data("business_models.csv", quo(city), "finance") ->
+    fm
+  if (!(fm %in% levels(tb$finance))) {
+    stop(
+      paste0("finance model must be one of: ",
+             collapse(levels(tb$finance))),
+      call. = FALSE
+    )
+  }
+
+  read_common_data("business_models.csv", quo(city), "cost_rec") ->
+    cr
+
+  tibble(bm, rs, fm, cr)
+
+
+}
+
+
 
 

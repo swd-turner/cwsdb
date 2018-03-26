@@ -10,7 +10,7 @@ build_tokyo()
 A row of
 }
 \description{
-Build the Tokyo csw entry from raw data
+Build the Tokyo gluwasp entry from raw data
 }
 \details{
 Builds the cws entry for Tokyo

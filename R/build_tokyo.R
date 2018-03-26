@@ -1,6 +1,6 @@
 #' build_tokyo
 #'
-#' Build the Tokyo csw entry from raw data
+#' Build the Tokyo gluwasp entry from raw data
 #'
 #' @details Builds the cws entry for Tokyo
 #' @return A row of
@@ -53,9 +53,9 @@ build_tokyo <- function() {
     gluwasp_tky[["storage"]]
 
   # compute number of reservoirs
-  res_tky %>%
-    nrow() ->
-    gluwasp_tky[["num_res"]]
+  # res_tky %>%
+  #   nrow() ->
+  #   gluwasp_tky[["num_res"]]
 
   # compute treatment capacity
   trt_tky %>%
@@ -96,8 +96,35 @@ build_tokyo <- function() {
   #=====================================================//
   # EXTRACT STATS FROM COMMON DATA ====================//
 
+  read_common_data("pop_and_demand.csv", quo(city), "pop_served") ->
+    gluwasp_tky[["pop"]]
+
+  (1 - read_common_data("pop_and_demand.csv",
+                        quo(city),
+                        "pop_unserved_pc")) * 100 ->
+    gluwasp_tky[["access"]]
+
+  read_common_data("pop_and_demand.csv", quo(city), "demand") ->
+    gluwasp_tky[["demand_total"]]
+
+  read_common_data("pop_and_demand.csv", quo(city), "share_dom") *
+    0.01 * gluwasp_tky$demand_total ->
+    gluwasp_tky[["demand_dmstc"]]
+
+
+  # leakage
   read_common_data("leakage_rates.csv", quo(city), "leak_rate") ->
     gluwasp_tky[["leakage"]]
+
+  # business model detail
+  get_business_model_detail(gluwasp_tky, quo(city)) ->
+    bus_mod_detail
+
+  bus_mod_detail$bm -> gluwasp_tky[["business_model"]]
+  bus_mod_detail$rs -> gluwasp_tky[["revenue_source"]]
+  bus_mod_detail$fm -> gluwasp_tky[["finance"]]
+  bus_mod_detail$cr -> gluwasp_tky[["cost_rec"]]
+
 
   #=====================================================//
   # RETURN OUTPUT =====================================//
