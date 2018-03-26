@@ -26,6 +26,6 @@ build_gluwasp <- function() {
 
 
 # to update main datafile:
-# gluwasp = gluwasp = gluwasp::build_gluwasp()
+# gluwasp <- gluwasp::build_gluwasp()
 # usethis::use_data(gluwasp, overwrite = T)
 

@@ -17,8 +17,10 @@ test_that("inputs are type .csv", {
                length(all_files))
 })
 
-# test_that("inputs are commented correctly", {
-# })
+test_that("inputs are commented correctly", {
+  expect_true(all(unlist(lapply(common_files, check_input_comments)) == TRUE))
+  expect_true(all(unlist(lapply(city_files, check_input_comments)) == TRUE))
+})
 
 test_that("sources are cross-referenced", {
   sources <- readr::read_csv(source_file, comment = "#") %>% .$abbrv
