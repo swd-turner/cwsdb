@@ -96,6 +96,7 @@ build_tokyo <- function() {
   #=====================================================//
   # EXTRACT STATS FROM COMMON DATA ====================//
 
+  #population and demographics
   read_common_data("pop_and_demand.csv", quo(city), "pop_served") ->
     gluwasp_tky[["pop"]]
 
@@ -111,7 +112,6 @@ build_tokyo <- function() {
     0.01 * gluwasp_tky$demand_total ->
     gluwasp_tky[["demand_dmstc"]]
 
-
   # leakage
   read_common_data("leakage_rates.csv", quo(city), "leak_rate") ->
     gluwasp_tky[["leakage"]]
@@ -119,11 +119,16 @@ build_tokyo <- function() {
   # business model detail
   get_business_model_detail(gluwasp_tky, quo(city)) ->
     bus_mod_detail
-
   bus_mod_detail$bm -> gluwasp_tky[["business_model"]]
   bus_mod_detail$rs -> gluwasp_tky[["revenue_source"]]
   bus_mod_detail$fm -> gluwasp_tky[["finance"]]
   bus_mod_detail$cr -> gluwasp_tky[["cost_rec"]]
+
+  # catchment
+  read_common_data("catchment_status.csv",
+                   quo(city), "catchment_status") ->
+    gluwasp_tky[["catchment_type"]]
+
 
 
   #=====================================================//

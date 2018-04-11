@@ -1,0 +1,8 @@
+# File: catchment_status.csv
+# Title: Catchment type
+# Units: NA
+# Description: Protected, managed, unmanaged, or mixed
+# Comments: "Protected" means catchment land is closed to other land uses (e.g., agriculture) and may be owned by the water supply authority specficically for conservation purposes; "managed"" means human activities in the catchment are regulated to safeguard water supplies, but the authority has limited
+# Source: Given in table.
+city,catchment_status,source_ref
+Tokyo,protected,tky_supply
