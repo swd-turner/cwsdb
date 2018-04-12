@@ -5,7 +5,7 @@
 #' @details Builds the cws entry for Tokyo
 #' @return A row of
 #' @importFrom tibble tibble
-#' @importFrom tidyr replace_na
+#' @importFrom tidyr replace_na spread
 #' @importFrom rlang .data
 #' @import dplyr
 #' @author SWDT March 2018
@@ -39,7 +39,13 @@ build_tokyo <- function() {
     mutate(treatmt_1 = case_when(
       grepl("rapid", .data$treatmt_1) ~ "rapid_sand",
       grepl("slow", .data$treatmt_1) ~ "slow_sand",
-      grepl("membrane", .data$treatmt_1) ~ "membrane")) ->
+      grepl("membrane", .data$treatmt_1) ~ "membrane")) %>%
+    mutate(resource = if_else(.data$river_basin == "groundwater",
+                              .data$river_basin, "surface")) %>%
+    full_join(tibble(resource = c("desal", "recyc"),
+                      capacity = c(0, 0)),
+              by = c("capacity", "resource")) ->
+    # ^^ coerce in missing resources (desal and recyc)
     trt_tky
 
 
@@ -62,6 +68,19 @@ build_tokyo <- function() {
     select(.data$capacity) %>%
     sum() * m3_to_Mm3 ->
     gluwasp_tky[["treat_cap"]]
+
+  # compute resource breakdown using treatment capacity data
+  trt_tky %>%
+    group_by(.data$resource) %>%
+    summarise(cap = sum(.data$capacity)) %>%
+    mutate(share = .data$cap / sum(.data$cap)) %>%
+    select(-.data$cap) %>%
+    spread(.data$resource, .data$share) -> resource_share
+
+  resource_share %>% .$surface -> gluwasp_tky[["surface"]]
+  resource_share %>% .$groundwater -> gluwasp_tky[["ground"]]
+  resource_share %>% .$desal -> gluwasp_tky[["desal"]]
+  resource_share %>% .$recyc -> gluwasp_tky[["recyc"]]
 
   # determine main modes of treatment
   trt_tky %>%
@@ -127,7 +146,7 @@ build_tokyo <- function() {
   # catchment
   read_common_data("catchment_status.csv",
                    quo(city), "catchment_status") ->
-    gluwasp_tky[["catchment_type"]]
+    gluwasp_tky[["catch_type"]]
 
 
 
