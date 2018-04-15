@@ -1,0 +1,8 @@
+# File: water_costs.csv
+# Title: Water costs for domestic users
+# Units: Specified in table
+# Description: Charge rates for household users
+# Comments:
+# Source: Given in table.
+city,cost,currency,volumetric_unit,source_ref
+Tokyo,195.45,JPY,m3,tky_refs

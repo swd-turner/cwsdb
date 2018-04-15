@@ -41,11 +41,7 @@ build_tokyo <- function() {
       grepl("slow", .data$treatmt_1) ~ "slow_sand",
       grepl("membrane", .data$treatmt_1) ~ "membrane")) %>%
     mutate(resource = if_else(.data$river_basin == "groundwater",
-                              .data$river_basin, "surface")) %>%
-    full_join(tibble(resource = c("desal", "recyc"),
-                      capacity = c(0, 0)),
-              by = c("capacity", "resource")) ->
-    # ^^ coerce in missing resources (desal and recyc)
+                              .data$river_basin, "surface")) ->
     trt_tky
 
 
@@ -79,8 +75,8 @@ build_tokyo <- function() {
 
   resource_share %>% .$surface -> gluwasp_tky[["surface"]]
   resource_share %>% .$groundwater -> gluwasp_tky[["ground"]]
-  resource_share %>% .$desal -> gluwasp_tky[["desal"]]
-  resource_share %>% .$recyc -> gluwasp_tky[["recyc"]]
+  # resource_share %>% .$desal -> gluwasp_tky[["desal"]]
+  # resource_share %>% .$recyc -> gluwasp_tky[["recyc"]]
 
   # determine main modes of treatment
   trt_tky %>%
@@ -131,10 +127,6 @@ build_tokyo <- function() {
     0.01 * gluwasp_tky$demand_total ->
     gluwasp_tky[["demand_dmstc"]]
 
-  # leakage
-  read_common_data("leakage_rates.csv", quo(city), "leak_rate") ->
-    gluwasp_tky[["leakage"]]
-
   # business model detail
   get_business_model_detail(gluwasp_tky, quo(city)) ->
     bus_mod_detail
@@ -148,10 +140,31 @@ build_tokyo <- function() {
                    quo(city), "catchment_status") ->
     gluwasp_tky[["catch_type"]]
 
+  # disinfection
+  read_common_data("disinfection.csv",
+                   quo(city), "dis") ->
+    gluwasp_tky[["disinf_main"]]
+
   # fluoridation
   read_common_data("fluoridation.csv",
                    quo(city), "fluoridation") ->
     gluwasp_tky[["fluorid"]]
+
+  # unit costs to consumer
+  read_common_data("water_costs.csv",
+                   quo(city), "cost") *
+    JPY_to_USD ->
+    # ^^ convert currency
+    gluwasp_tky[["unit_cost"]]
+
+  # meter penetration
+  read_common_data("meter_penetration.csv",
+                   quo(city), "meter_pen") ->
+    gluwasp_tky[["meter_pen"]]
+
+  # leakage
+  read_common_data("leakage_rates.csv", quo(city), "leak_rate") ->
+    gluwasp_tky[["leakage"]]
 
 
 

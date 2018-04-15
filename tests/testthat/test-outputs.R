@@ -12,10 +12,10 @@ test_that("output matches gluwasp data", {
 test_that("resources add up to 100%", {
 
   gluwasp_current %>%
-    mutate(total_resource = surface + ground + desal + recyc,
+    rowwise() %>%
+    mutate(total_resource = sum(surface, ground, desal, recyc, na.rm = T),
            test = if_else(total_resource == 1, TRUE, FALSE)) -> resource_test
   expect_equal(nrow(resource_test), sum(resource_test$test))
-
 
 })
 

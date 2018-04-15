@@ -1,0 +1,8 @@
+# File: disinfection.csv
+# Title: Method of disinction
+# Units: NA
+# Description: Primary means of disinfection of water supply. One of: "chlorine", "chlorine_dioxide", "chloramine", "ozone", or "UV".
+# Comments:
+# Source: Given in table.
+city,dis,source_ref
+Tokyo,chlorine,tky_supply

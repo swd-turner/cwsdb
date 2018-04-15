@@ -1,0 +1,8 @@
+# File: meter_penetration.csv
+# Title: Penetration of water meters
+# Units: Per cent
+# Description: Meter penetration as % of domestic households
+# Comments:
+# Source: Given in table.
+city,meter_pen,source_ref
+Tokyo,100,wbaaa2006
