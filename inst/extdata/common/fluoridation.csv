@@ -1,0 +1,8 @@
+# File: fluoridation.csv
+# Title: Fluoridation of public water supply
+# Units: NA
+# Description: Logical. Is fluoride added to public water to promote dental health?
+# Comments:
+# Source: Given in table.
+city,fluoridation,source_ref
+Tokyo,FALSE,bfs2013

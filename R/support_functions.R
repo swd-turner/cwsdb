@@ -34,7 +34,7 @@ make_gluwasp_tb <- function(){
                                    "chloramine",
                                    "ozone",
                                    "UV")),
-    fluoride = as.logical(NA),
+    fluorid = as.logical(NA),
     leakage = as.double(NA),
     meter_pen = as.double(NA),
     access = as.double(NA),

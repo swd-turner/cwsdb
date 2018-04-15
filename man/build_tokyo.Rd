@@ -7,13 +7,13 @@
 build_tokyo()
 }
 \value{
-A row of
+A row of gluwasp data for the city of Tokyo, Japan.
 }
 \description{
 Build the Tokyo gluwasp entry from raw data
 }
 \details{
-Builds the cws entry for Tokyo
+Builds the gluwasp entry for Tokyo
 }
 \author{
 SWDT March 2018

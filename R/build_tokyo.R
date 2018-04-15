@@ -2,8 +2,8 @@
 #'
 #' Build the Tokyo gluwasp entry from raw data
 #'
-#' @details Builds the cws entry for Tokyo
-#' @return A row of
+#' @details Builds the gluwasp entry for Tokyo
+#' @return A row of gluwasp data for the city of Tokyo, Japan.
 #' @importFrom tibble tibble
 #' @importFrom tidyr replace_na spread
 #' @importFrom rlang .data
@@ -147,6 +147,11 @@ build_tokyo <- function() {
   read_common_data("catchment_status.csv",
                    quo(city), "catchment_status") ->
     gluwasp_tky[["catch_type"]]
+
+  # fluoridation
+  read_common_data("fluoridation.csv",
+                   quo(city), "fluoridation") ->
+    gluwasp_tky[["fluorid"]]
 
 
 
