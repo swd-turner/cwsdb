@@ -1,0 +1,8 @@
+# File: currency_conversion.csv
+# Title: Currency exchange rates to USD
+# Units: Unitless
+# Description: Based on average rate of last five years
+# Comments:
+# Source: https://www.ofx.com/en-us/forex-news/historical-exchange-rates/
+currency,code,rate,dmy_retrieved
+Japanese Yen,JPY,0.009025,15-04-2018

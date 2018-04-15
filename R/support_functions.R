@@ -189,9 +189,23 @@ get_business_model_detail <- function(tb, city){
 
   tibble(bm, rs, fm, cr)
 
-
 }
 
+# convert_to_USD_per_m3
+# convert unit cost to USD per m3
+get_unit_cost_USD_per_m3 <- function(city){
 
+  read_gluwasp_data("water_costs.csv", "common") %>%
+    filter(city == !! city) ->
+    unit_cost_raw
 
+  read_gluwasp_data("currency_conversion.csv", "") %>%
+    right_join(unit_cost_raw,
+               by = c("code" = "currency")) %>%
+    mutate(cost_USD = .data$cost * .data$rate) %>%
+    .$cost_USD ->
+    cost_USD
 
+  if(unit_cost_raw[["volumetric_unit"]] == "m3") cost_USD
+
+}

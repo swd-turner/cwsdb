@@ -4,10 +4,10 @@
 m3_to_Mm3 <- 1e-06
 
 # currency conversions
-# ... should ultimately be linked to central csv
-#... including PPP, inflation etc.
+# source: https://www.ofx.com/en-us/forex-news/historical-exchange-rates/
+# based on average of last five years
 
-JPY_to_USD <- 0.0093
+JPY_to_USD <- 0.009025
 
 
 

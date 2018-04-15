@@ -17,7 +17,7 @@ build_tokyo <- function() {
   # SETUP =============================================//
 
   # read city name (must be identical to data folder name for city)
-  city ="Tokyo"
+  city <- "Tokyo"
 
   # suppress readr column parsing messages
   options(readr.num_columns = 0)
@@ -54,11 +54,6 @@ build_tokyo <- function() {
     sum() ->
     gluwasp_tky[["storage"]]
 
-  # compute number of reservoirs
-  # res_tky %>%
-  #   nrow() ->
-  #   gluwasp_tky[["num_res"]]
-
   # compute treatment capacity
   trt_tky %>%
     select(.data$capacity) %>%
@@ -75,8 +70,6 @@ build_tokyo <- function() {
 
   resource_share %>% .$surface -> gluwasp_tky[["surface"]]
   resource_share %>% .$groundwater -> gluwasp_tky[["ground"]]
-  # resource_share %>% .$desal -> gluwasp_tky[["desal"]]
-  # resource_share %>% .$recyc -> gluwasp_tky[["recyc"]]
 
   # determine main modes of treatment
   trt_tky %>%
@@ -151,10 +144,7 @@ build_tokyo <- function() {
     gluwasp_tky[["fluorid"]]
 
   # unit costs to consumer
-  read_common_data("water_costs.csv",
-                   quo(city), "cost") *
-    JPY_to_USD ->
-    # ^^ convert currency
+  get_unit_cost_USD_per_m3(quo(city)) ->
     gluwasp_tky[["unit_cost"]]
 
   # meter penetration
