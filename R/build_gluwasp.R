@@ -17,6 +17,7 @@ build_gluwasp <- function() {
 
   # build db for each city
   gluwasp_tokyo <- build_tokyo(); done("Tokyo")
+  gluwasp_delhi <- build_delhi(); done("Delhi")
 
   # combine to create gluwasp
   bind_rows(gluwasp_tokyo)

@@ -8,7 +8,7 @@
 #' @importFrom tidyr replace_na spread
 #' @importFrom rlang .data
 #' @import dplyr
-#' @author SWDT March 2018
+#' @author SWDT April 2018
 #' @export
 
 build_tokyo <- function() {
@@ -105,23 +105,21 @@ build_tokyo <- function() {
   # EXTRACT STATS FROM COMMON DATA ====================//
 
   #population and demographics
-  read_common_data("pop_and_demand.csv", quo(city), "pop_served") ->
+  read_common_data("pop_and_demand.csv", city, "pop_served") ->
     gluwasp_tky[["pop"]]
 
-  (1 - read_common_data("pop_and_demand.csv",
-                        quo(city),
-                        "pop_unserved_pc")) * 100 ->
+  read_common_data("pop_and_demand.csv", city, "pop_served_pc") ->
     gluwasp_tky[["access"]]
 
-  read_common_data("pop_and_demand.csv", quo(city), "demand") ->
+  read_common_data("pop_and_demand.csv", city, "demand") ->
     gluwasp_tky[["demand_total"]]
 
-  read_common_data("pop_and_demand.csv", quo(city), "share_dom") *
+  read_common_data("pop_and_demand.csv", city, "share_dom") *
     0.01 * gluwasp_tky$demand_total ->
     gluwasp_tky[["demand_dmstc"]]
 
   # business model detail
-  get_business_model_detail(gluwasp_tky, quo(city)) ->
+  get_business_model_detail(gluwasp_tky, city) ->
     bus_mod_detail
   bus_mod_detail$bm -> gluwasp_tky[["business_model"]]
   bus_mod_detail$rs -> gluwasp_tky[["revenue_source"]]
@@ -130,30 +128,30 @@ build_tokyo <- function() {
 
   # catchment
   read_common_data("catchment_status.csv",
-                   quo(city), "catchment_status") ->
+                   city, "catchment_status") ->
     gluwasp_tky[["catch_type"]]
 
   # disinfection
   read_common_data("disinfection.csv",
-                   quo(city), "dis") ->
+                   city, "dis") ->
     gluwasp_tky[["disinf_main"]]
 
   # fluoridation
   read_common_data("fluoridation.csv",
-                   quo(city), "fluoridation") ->
+                   city, "fluoridation") ->
     gluwasp_tky[["fluorid"]]
 
   # unit costs to consumer
-  get_unit_cost_USD_per_m3(quo(city)) ->
+  get_unit_cost_USD_per_m3(city) ->
     gluwasp_tky[["unit_cost"]]
 
   # meter penetration
   read_common_data("meter_penetration.csv",
-                   quo(city), "meter_pen") ->
+                   city, "meter_pen") ->
     gluwasp_tky[["meter_pen"]]
 
   # leakage
-  read_common_data("leakage_rates.csv", quo(city), "leak_rate") ->
+  read_common_data("leakage_rates.csv", city, "leak_rate") ->
     gluwasp_tky[["leakage"]]
 
 
