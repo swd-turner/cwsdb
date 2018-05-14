@@ -19,6 +19,11 @@ building <- function(...) {
   bullet(crayon::blue(paste0(...)), bullet = crayon::blue(clisymbols::symbol$square))
 }
 
+city_complete <- function(...){
+  bullet(crayon::blue(paste0(...)), bullet = paste0(crayon::black(clisymbols::symbol$lower_block_4),
+                                                     crayon::black(clisymbols::symbol$lower_block_8)))
+}
+
 code_block <- function(..., copy = interactive()) {
   block <- paste0("  ", c(...), collapse = "\n")
   if (copy && clipr::clipr_available()) {

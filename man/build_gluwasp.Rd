@@ -13,8 +13,8 @@ gluwasp
 Build the city water supply database
 }
 \details{
-Builds the gluwasp entry for Tokyo
+Builds the gluwasp database
 }
 \author{
-SWDT March 2018
+SWDT May 2018
 }

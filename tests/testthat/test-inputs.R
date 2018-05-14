@@ -31,7 +31,15 @@ test_that("sources are cross-referenced", {
 test_that("catchment status is valid", {
   status_list <- read_gluwasp_data("catchment_status.csv", "common") %>%
     .$catchment_status
-  acceptable_entries <- make_gluwasp_tb() %>% .$catch_type %>% levels()
+  acceptable_entries <- c("protected", "managed", "unmanaged")
+  testthat::expect_equal(sum(is.element(status_list, acceptable_entries)),
+                         length(status_list))
+})
+
+test_that("business model is valid", {
+  status_list <- read_gluwasp_data("business_models.csv", "common") %>%
+    .$model
+  acceptable_entries <- c("protected", "managed", "unmanaged")
   testthat::expect_equal(sum(is.element(status_list, acceptable_entries)),
                          length(status_list))
 })

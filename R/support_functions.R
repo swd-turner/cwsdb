@@ -9,55 +9,41 @@ make_gluwasp_tb <- function(){
     demand_total = as.double(NA),
     demand_dmstc = as.double(NA),
     storage = as.double(NA),
-    catch_type = factor(NA,
-                       levels = c("protected",
-                                  "managed",
-                                  "unmanaged")),
+    catch_type = as.character(NA),
+    # ^^ allowed values: "protected", "managed", "unmanaged"
     surface = as.double(NA),
     ground = as.double(NA),
     desal = as.double(NA),
     recyc = as.double(NA),
     treat_cap = as.double(NA),
-    treat_main = factor(NA,
-                       levels = c("slow_sand",
-                                  "rapid_sand",
-                                  "natural",
-                                  "membrane",
-                                  "reverse_osmosis")),
-    treat_sec = .data$treat_main,
+    treat_main = as.character(NA),
+    # ^^ allowed values: "slow_sand", "rapid_sand", "natural", ...
+    # ... "membrane", "reverse_osmosis"
+    treat_sec = as.character(NA),
+    # ^^ allowed values as treat_main
     adv_treatment = as.logical(NA),
-    disinf_main = factor(NA,
-                        levels = c("chlorine",
-                                   "chlorine_dioxide",
-                                   "chloramine",
-                                   "ozone",
-                                   "UV")),
+    disinf_main = as.character(NA),
+    # ^^ allowed values: "chlorine", "chlorine_dioxide", ...
+    # ... "chloramine", "ozone", "UV"
     fluorid = as.logical(NA),
     unit_cost = as.double(NA),
     leakage = as.double(NA),
     meter_pen = as.double(NA),
-    business_model = factor(NA,
-                            levels = c("gvt_utility",
-                                       "delegated_man",
-                                       "municipal_brd",
-                                       "coop",
-                                       "corp_utility",
-                                       "pub_corp",
-                                       "private_utility")),
-    revenue_source = factor(NA,
-                            levels = c("user_rates",
-                                       "property_taxes",
-                                       "subsidy")),
+    business_model = as.character(NA),
+    # ^^ allowed values: "gvt_utility", "delegated_man", ...
+    # ... "municipal_brd", "coop","corp_utility", ...
+    # ... "pub_corp", "private_utility"
+    revenue_source = factor(NA),
+    # ^^ allowed values: "user_rates", "property_taxes", "subsidy"
     cost_rec = as.logical(NA),
-    finance = factor(NA, levels = c("state_subsidy",
-                                    "bond_issue",
-                                    "PPP",
-                                    "mixed")))
+    finance = as.character(NA)
+    # allowed values: "state_subsidy", "bond_issue", "PPP", "mixed"
+  )
 }
 
 # read_gluwasp_data
 # read in gluwasp data
-read_gluwasp_data <- function(file, city){
+read_gluwasp_data <- function(file){
 
   # ensure file is csv type
   if (substr(file, nchar(file) - 3, nchar(file)) != ".csv") {
@@ -68,7 +54,7 @@ read_gluwasp_data <- function(file, city){
   }
 
   # read in data
-  readr::read_csv(system.file(paste0("extdata/", city),
+  readr::read_csv(system.file(paste0("extdata/common"),
                               file,
                               package = "gluwasp"),
                   comment = "#")
@@ -156,33 +142,12 @@ get_business_model_detail <- function(tb, city){
 
   read_common_data("business_models.csv", quo(city), "model") ->
     bm
-  if (!(bm %in% levels(tb$business_model))) {
-    stop(
-      paste0("business model must be one of: ",
-             collapse(levels(tb$business_model))),
-      call. = FALSE
-    )
-  }
 
   read_common_data("business_models.csv", quo(city), "rev_source") ->
     rs
-  if (!(rs %in% levels(tb$revenue_source))) {
-    stop(
-      paste0("revenue source must be one of: ",
-             collapse(levels(tb$revenue_source))),
-      call. = FALSE
-    )
-  }
 
   read_common_data("business_models.csv", quo(city), "finance") ->
     fm
-  if (!(fm %in% levels(tb$finance))) {
-    stop(
-      paste0("finance model must be one of: ",
-             collapse(levels(tb$finance))),
-      call. = FALSE
-    )
-  }
 
   read_common_data("business_models.csv", quo(city), "cost_rec") ->
     cr
