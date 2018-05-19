@@ -5,5 +5,5 @@
 # Comments:
 # Source: Given in table.
 city,pop_served,pop_served_pc,demand,dem_unit,share_dom,source_ref
-Tokyo,13.173,100,4.078,Mm3D,73,tky_gov
-Delhi,19,75.2,452.15,MGD,94.2,dlh_water
+Tokyo,13.173,100,4.078,Mm3/d,73,tky_gov
+Delhi,19,75.2,452.15,MGi/d,94.2,dlh_water

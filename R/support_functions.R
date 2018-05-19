@@ -45,15 +45,9 @@ make_gluwasp_tb <- function(){
 # read in gluwasp data
 read_gluwasp_data <- function(file){
 
-  # ensure file is csv type
-  if (substr(file, nchar(file) - 3, nchar(file)) != ".csv") {
-    stop(
-      "first argument must be of type .csv and be named with .csv extension",
-      call. = FALSE
-    )
-  }
+  # suppress readr column parsing messages
+  options(readr.num_columns = 0)
 
-  # read in data
   readr::read_csv(system.file(paste0("extdata/common"),
                               file,
                               package = "gluwasp"),
@@ -64,14 +58,6 @@ read_gluwasp_data <- function(file){
 # read_common_data
 # read in data from common file
 read_common_data <- function(file, city, col_name){
-
-  # ensure file is csv type
-  if (substr(file, nchar(file) - 3, nchar(file)) != ".csv") {
-    stop(
-      "first argument must be of type .csv and be named with .csv extension",
-      call. = FALSE
-    )
-  }
 
   read_gluwasp_data(file, "common") %>%
     filter(city == !! city) %>%
