@@ -1,3 +1,22 @@
+# convert_resource_units
+# convert resource breakdown to percent units to Mm3
+convert_resource_units <- function(raw_data){
+  raw_data %>%
+    mutate(surface = case_when(
+      unit == "percent" ~ as.double(surface)
+    ),
+    ground = case_when(
+      unit == "percent" ~ as.double(ground)
+    ),
+    desal = case_when(
+      unit == "percent" ~ as.double(desal)
+    ),
+    recyc = case_when(
+      unit == "percent" ~ as.double(recyc)
+    )) %>%
+    select(-unit, -source_ref)
+}
+
 # convert_storage_units
 # convert storage units to Mm3
 convert_storage_units <- function(raw_data){

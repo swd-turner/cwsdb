@@ -4,7 +4,7 @@
 # Description: Capacity and main types of water treatment
 # Comments: Advanced treatment is TRUE if a significant portion of production (>50%) receives advanced treatment (e.g., activated carbon). Treatment capacity refers to total plant output.
 # Source: Given in table.
-city,treat_main,treat_sec,adv_treatment,treatment_cap,unit,source_ref
-Tokyo,rapid_sand,slow_sand,TRUE,7010000,m3/day,tky_supply
+city,treat_main,treat_sec,adv_treatment,treatment_cap,desal_cap,recyc_cap,unit,source_ref
+Tokyo,rapid_sand,slow_sand,TRUE,7010000,NA,NA,m3/day,tky_supply
 
 

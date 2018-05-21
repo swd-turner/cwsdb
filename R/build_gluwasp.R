@@ -15,6 +15,11 @@ build_gluwasp <- function() {
 
   building("Building the global urban water supply database from raw sources...")
 
+  read_gluwasp_data("resources.csv") %>%
+    convert_resource_units() ->
+    gluwasp_rsrc
+  done("resource breakdown prepared")
+
   read_gluwasp_data("storage.csv") %>%
     group_by(city, effective, stor_unit) %>%
     summarise(storage = sum(storage)) %>% ungroup() %>%
@@ -84,7 +89,8 @@ build_gluwasp <- function() {
   done("currencies converted...")
 
 
-  list(gluwasp_stor,
+  list(gluwasp_rsrc,
+       gluwasp_stor,
        gluwasp_trtm,
        gluwasp_popd,
        gluwasp_bsmd,

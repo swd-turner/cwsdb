@@ -1,0 +1,8 @@
+# File: resources.csv
+# Title: Resource breakdown
+# Units: Given in table.
+# Description: Resource breakdown and maximum production capacities.
+# Comments: Resource breakdown is based on long-term average production.
+# Source: Given in table.
+city,surface,ground,desal,recyc,unit,source_ref
+Tokyo,99.8,0.2,NA,NA,percent,tky_supply
