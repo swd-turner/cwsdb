@@ -1,0 +1,9 @@
+# File: cities.csv
+# Title: Gluwasp cities
+# Units: NA
+# Description: gluwasp cities, three-letter gluwasp codes, and countries
+# Comments:
+# Source: NA
+city,gluwasp_code,country
+Tokyo,tky,Japan
+Delhi,dlh,India

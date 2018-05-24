@@ -6,14 +6,17 @@
 #'
 #' @details Builds the gluwasp database
 #' @return gluwasp
+#' @import dplyr
 #' @importFrom tibble tibble
-#' @importFrom dplyr mutate
 #' @author SWDT May 2018
 #' @export
 
 build_gluwasp <- function() {
 
   building("Building the global urban water supply database from raw sources...")
+
+  read_gluwasp_data("cities.csv") ->
+    gluwasp_city
 
   read_gluwasp_data("resources.csv") %>%
     convert_resource_units() ->
@@ -89,7 +92,8 @@ build_gluwasp <- function() {
   done("currencies converted...")
 
 
-  list(gluwasp_rsrc,
+  list(gluwasp_city,
+       gluwasp_rsrc,
        gluwasp_stor,
        gluwasp_trtm,
        gluwasp_popd,

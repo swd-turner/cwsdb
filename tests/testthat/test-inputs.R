@@ -20,7 +20,8 @@ test_that("inputs are commented correctly", {
 
 test_that("sources are cross-referenced", {
   sources <- readr::read_csv(source_file, comment = "#") %>% .$abbrv
-  cmn_src_names <- unlist(lapply(common_files, get_cmn_src_names))
+  cf_filtered <- common_files[!grepl("cities", common_files) & !grepl("currency", common_files)]
+  cmn_src_names <- unlist(lapply(cf_filtered, get_cmn_src_names))
   expect_equal(sum(cmn_src_names %in% sources), length(cmn_src_names))
 })
 

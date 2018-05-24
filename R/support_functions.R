@@ -54,20 +54,6 @@ read_gluwasp_data <- function(file){
                   comment = "#")
 }
 
-
-# read_common_data
-# read in data from common file
-read_common_data <- function(file, city, col_name){
-
-  read_gluwasp_data(file, "common") %>%
-    filter(city == !! city) %>%
-    select(one_of(col_name)) %>%
-    `[[`(1)
-}
-
-
-
-
 # check_input_comments
 # check comments include necessary fields
 check_input_comments <- function(file){
@@ -120,43 +106,4 @@ get_cmn_src_names <- function(file){
                               file,
                               package = "gluwasp"),
                   comment = "#") %>% .$source_ref
-}
-
-# get_business_model_detail
-# get business model info
-get_business_model_detail <- function(tb, city){
-
-  read_common_data("business_models.csv", quo(city), "model") ->
-    bm
-
-  read_common_data("business_models.csv", quo(city), "rev_source") ->
-    rs
-
-  read_common_data("business_models.csv", quo(city), "finance") ->
-    fm
-
-  read_common_data("business_models.csv", quo(city), "cost_rec") ->
-    cr
-
-  tibble(bm, rs, fm, cr)
-
-}
-
-# convert_to_USD_per_m3
-# convert unit cost to USD per m3
-get_unit_cost_USD_per_m3 <- function(city){
-
-  read_gluwasp_data("water_costs.csv", "common") %>%
-    filter(city == !! city) ->
-    unit_cost_raw
-
-  read_gluwasp_data("currency_conversion.csv", "") %>%
-    right_join(unit_cost_raw,
-               by = c("code" = "currency")) %>%
-    mutate(cost_USD = .data$cost * .data$rate) %>%
-    .$cost_USD ->
-    cost_USD
-
-  if(unit_cost_raw[["volumetric_unit"]] == "m3") cost_USD
-
 }
