@@ -24,7 +24,7 @@ The utility is owned by the municipal or regional government, but various core p
 ## Municipal board or commission (municial_brd)
 #### Asset ownership: ___Municipal or regional government___
 #### Asset operation: ___Commission or board___
-The utility is owned by the government, but operated by a separate legal entity, often termed a Public Utility Commission or a Municipal Board. These boards are typically given a ring-fenced budget, and must raise revenues through user fees. The municipal board model is widespread in the United States.
+The utility is owned by the government, but operated by a separate legal entity, often termed a Public Utility Commission or a Municipal Board. Board members are elected by Government. These boards are typically given a ring-fenced budget, and must raise some of its revenues through user fees. The municipal board model is widespread in the United States.
 
 ## Cooperative (coop)
 #### Asset ownership: ___Users___

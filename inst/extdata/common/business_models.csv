@@ -6,3 +6,4 @@
 # Source: Given in table.
 city,agency,model,rev_source,cost_rec,finance,source_ref
 Tokyo,Tokyo Waterworks Bureau,pub_corp,user_rates,TRUE,mixed,tky_gov
+Delhi,Delhi Jal Board,municial_brd,user_rates,FALSE,mixed,dlh_act

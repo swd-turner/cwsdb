@@ -108,7 +108,8 @@ build_gluwasp <- function() {
     gluwasp
 
   done("gluwasp built!")
-  city_complete(paste0("gluwasp cities: ", gluwasp$city))
+  city_complete(paste("gluwasp cities:",
+                       paste0(gluwasp$city, collapse = " ")))
 
   gluwasp
 

@@ -83,7 +83,7 @@ test_that("treatment technologies are valid", {
     .$treat_sec
 
   acceptable_entries <- c("slow_sand", "rapid_sand", "natural",
-                          "membrane", "reverse_osmosis")
+                          "membrane", "reverse_osmosis", "unreported")
 
   testthat::expect_equal(sum(is.element(status_list_main, acceptable_entries)),
                          length(status_list_main))

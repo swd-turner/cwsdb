@@ -1,7 +1,7 @@
 # File: pop_and_demand.csv
 # Title: Population and demand detail
 # Units: Given in table.
-# Description: Population served, total demand (i.e., water consumption rates), share of demand to domestic customers, and pervation.
+# Description: Population served (with treated water), total demand (i.e., water consumption rates), share of demand to domestic customers, and pervation.
 # Comments:
 # Source: Given in table.
 city,pop_served,pop_served_pc,demand,dem_unit,share_dom,source_ref

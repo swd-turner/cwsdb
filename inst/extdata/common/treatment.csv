@@ -6,5 +6,4 @@
 # Source: Given in table.
 city,treat_main,treat_sec,adv_treatment,treatment_cap,desal_cap,recyc_cap,unit,source_ref
 Tokyo,rapid_sand,slow_sand,TRUE,7010000,NA,NA,m3/day,tky_supply
-
-
+Delhi,unreported,unreported,FALSE,906,NA,45,MGi/d,dlh_water
