@@ -6,3 +6,4 @@
 # Source: Given in table.
 city,surface,ground,desal,recyc,unit,source_ref
 Tokyo,99.8,0.2,NA,NA,percent,tky_supply
+Delhi,89.0,11.0,NA,NA,percent,dlh_policy
