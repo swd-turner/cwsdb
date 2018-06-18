@@ -4,7 +4,7 @@
 # Description: Water supply reservoir details
 # Comments:
 # Source: Given in table.
-city,res_name,basin,storage,effective,stor_unit,catch_area,area_unit,dam_type,impounded,source_ref
+city,res_name,basin,storage,effective,stor_unit,dam_type,impounded,catch_area,area_unit,source_ref
 Tokyo,Ogouchi,Tama,185.4,TRUE,Mm3,gravity,1957,262.88,km2,tky_supply
 Tokyo,Yamaguchi,Tama,19.528,TRUE,Mm3,earth,1934,7.18,km2,tky_supply
 Tokyo,Murayama-kami,Tama,2.983,TRUE,Mm3,earth,1927,1.34,km2,tky_supply
@@ -20,3 +20,4 @@ Tokyo,Arakawa,Tone_Arakawa,10.6,TRUE,Mm3,pit,1996,NA,km2,tky_supply
 Tokyo,Urayama,Tone_Arakawa,56.0,TRUE,Mm3,gravity,1998,52,km2,tky_supply
 Tokyo,Takizawa,Tone_Arakawa,58.0,TRUE,Mm3,gravity,2010,109,km2,tky_supply
 Tokyo,Futase ,Tone_Arakawa,21.8,TRUE,Mm3,arch,1961,170,km2,tky_supply
+Delhi,Wazirabad,Yamuna,0,TRUE,Mm3,barrage,1959,NA,NA,dlh_wss
