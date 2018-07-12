@@ -5,5 +5,5 @@
 # Comments:
 # Source: Given in table.
 city,fluoridation,source_ref
-Tokyo,FALSE,bfs2013
+Tokyo,FALSE,_fluor01
 Delhi,FALSE,dlh_water

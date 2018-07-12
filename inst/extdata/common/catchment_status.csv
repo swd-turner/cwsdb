@@ -7,3 +7,4 @@
 city,catchment_status,source_ref
 Tokyo,protected,tky_supply
 Delhi,unmanaged,dlh_yamuna
+Shanghai,unmanaged,_catchment01
