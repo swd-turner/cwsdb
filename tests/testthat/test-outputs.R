@@ -15,7 +15,7 @@ test_that("resources add up to 100%", {
     rowwise() %>%
     mutate(total_resource = sum(surface, ground, desal, recyc, na.rm = T),
            test = if_else(total_resource == 100, TRUE, FALSE)) -> resource_test
-  expect_equal(nrow(resource_test), sum(resource_test$test))
+  expect_true(all(resource_test$test))
 
 })
 

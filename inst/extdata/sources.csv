@@ -1,17 +1,20 @@
-# File: sources.csv,,,,,
-# Title: Source details and abbreviations used in gluwasp,,,,,
-# Units: NA,,,,,
-# Description: Details of all sources used in gluwasp,,,,,
-# Comments: If year is unknown then latest year of citations in document assumed.,,,,,
+# File: sources.csv
+# Title: Source details and abbreviations used in gluwasp
+# Units: NA
+# Description: Details of all sources used in gluwasp
+# Comments: If year is unknown then latest year of citations in document assumed.
 abbrv,author,year,title,publisher,url
+_catchment01,Dudely and Stolten,2003,Running pure: the importance of forest protected areas to drinking water,World Bank,http://siteresources.worldbank.org/INTBIODIVERSITY/Resources/RunningPure2003+.pdf
+_china01,Cosier and Shen,2009,Urban Water Management in China,Water Resources Development,https://doi.org/10.1080/07900620902868679
+_china02,Browder,2007,Stepping Up: Improving the performance of China's urban water utilities,World Bank,http://documents.worldbank.org/curated/en/840621468016215926/Stepping-up-improving-the-performance-of-Chinas-urban-water-utilities
+_fluor01,British Fluoridation Society,2013,The extent of fluoridation,BFS,https://www.bfsweb.org/one-in-a-million
+_gov01,Bakker,2002,Good governance in restructuring water supply: a handbook,Federation of Canadian Municipalities,https://www.ircwash.org/sites/default/files/Bakker-2002-Good.pdf
+_japan01,World Bank Analytical and Advisory Assistance Program,2006,Water Resources Management in Japan, World Bank,http://siteresources.worldbank.org/INTEAPREGTOPENVIRONMENT/Resources/WRM_Japan_experience_EN.pdf
+_moc,Kennedy,2015,Metabolism of cities,NA - website,https://metabolismofcities.org
 tky_gov,Bureau of Waterworks Tokyo Met. Gov.,2016,Outline of the Tokyo Waterworks Bureau,BoWTMG,www.waterworks.metro.tokyo.jp/eng/supply/
 tky_supply,Bureau of Waterworks Tokyo Met. Gov.,2016,Stable supply of delicious potable water,BoWTMG,www.waterworks.metro.tokyo.jp/eng/supply/
 tky_leak,Bureau of Waterworks Tokyo Met. Gov.,2017,Prevention of leakage in Tokyo,BoWTMG,http://www.waterprofessionals.metro.tokyo.jp/pdf/Prevention_of_Leakage_in_Tokyo_2017.pdf
 tky_refs,Bureau of Waterworks Tokyo Met. Gov.,2016,References,BoWTMG,http://www.waterprofessionals.metro.tokyo.jp/pdf/wst_09.pdf
-_gov01,Bakker,2002,Good governance in restructuring water supply: a handbook,Federation of Canadian Municipalities,https://www.ircwash.org/sites/default/files/Bakker-2002-Good.pdf
-_catchment01,Dudely and Stolten,2003,Running pure: the importance of forest protected areas to drinking water,World Bank,http://siteresources.worldbank.org/INTBIODIVERSITY/Resources/RunningPure2003+.pdf
-_fluor01,British Fluoridation Society,2013,The extent of fluoridation,BFS,https://www.bfsweb.org/one-in-a-million
-_japan01,World Bank Analytical and Advisory Assistance Program,2006,Water Resources Management in Japan, World Bank,http://siteresources.worldbank.org/INTEAPREGTOPENVIRONMENT/Resources/WRM_Japan_experience_EN.pdf
 dlh_water,Delhi Government,2017,Economic Survey of Delhi - Water Supply and Sewerage,Government of NCT of Delhi,http://delhi.gov.in/wps/wcm/connect/DoIT_Planning/planning/economic+survey+of+dehli/economic+survey+of+delhi+2016+-+2017
 dlh_act,Government of National Capital Territory of Delhi,1998,The Delhi Jal Board Act,Government of National Capital Territory of Delhi,http://www.indiawaterportal.org/sites/indiawaterportal.org/files/Delhi%20Jal%20Board%20Act_1998.pdf
 dlh_policy,Delhi Government,2016,Water Policy for Delhi,Delhi Government,http://www.delhi.gov.in/wps/wcm/connect/f91b008046c5ef03bddbfd7d994b04ce/water+policy_21112016.pdf?MOD=AJPERES&lmod=604996771
@@ -20,6 +23,3 @@ dlh_wss,Department of Urban Development,2007,City Development Plan Delhi - Ch8,D
 dlh_quality,DJB,2009,Quality control set-up of Delhi Jal Board,DJB,NA
 dlh_cityreport,Safe Water Network,2016,Drinking water supply for urban poor, Safe Water Network,https://www.safewaternetwork.org/sites/default/files/Safe%20Water%20Network_Delhi%20City%20Report.PDF
 shg_water,Hou,1999,Shaghai Water,Center for Human Development,http://www.chs.ubc.ca/china/
-_china01,cosier,2009,,,
-_china02,,2008,,,
-_moc,Kennedy,2015,Metabolism of cities,NA - website,https://metabolismofcities.org

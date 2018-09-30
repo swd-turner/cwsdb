@@ -7,4 +7,4 @@
 city,agency,model,rev_source,cost_rec,finance,source_ref
 Tokyo,Tokyo Waterworks Bureau,pub_corp,user_rates,TRUE,mixed,tky_gov
 Delhi,Delhi Jal Board,municial_brd,subsidy,FALSE,mixed,dlh_act
-Shanghai,Shanghai Water Affairs Bureau,delegated_man,user_rates,FALSE,mixed,bond_issue,shg_water
+Shanghai,Shanghai Water Affairs Bureau,delegated_man,user_rates,FALSE,bond_issue,shg_water
